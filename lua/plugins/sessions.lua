@@ -8,10 +8,7 @@ return {
         load_on_setup = true, -- Initialize on startup (requires Telescope)
         theme_conf = { border = true },
         previewer = false, -- Disable previewer
-      },
-      vim.keymap.set("n", "<Lader>ls", require('auto-session.session_lens').search_session, {
-        noremap = true,
-      }),
+      }
     })
   end,
 }
