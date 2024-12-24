@@ -7,7 +7,29 @@ return {
     dependencies = {
       "saadparwaiz1/cmp_luasnip",
       "rafamadriz/friendly-snippets",
+      "hrsh7th/cmp-nvim-lsp", -- LSP source for nvim-cmp
+      "hrsh7th/cmp-buffer",   -- Buffer completions
+      "hrsh7th/cmp-path",     -- Path completions
+      "hrsh7th/cmp-vsnip",    -- Snippet completions
+      "hrsh7th/vim-vsnip",    -- Snippet engine
     },
+  },
+  {
+      "mattn/emmet-vim",
+      config = function()
+        vim.g.user_emmet_leader_key = "<C-y>" -- Trigger Emmet with Ctrl-y
+      end,
+  },
+  {
+    "mhinz/vim-startify", -- Useful for creating templates
+    config = function()
+      vim.api.nvim_create_autocmd("BufNewFile", {
+        pattern = "*.html",
+        callback = function()
+          vim.cmd("0r ~/.config/nvim/templates/html.skeleton")
+        end,
+      })
+    end,
   },
   {
     "github/copilot.vim"
